@@ -2,11 +2,15 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 const AddTaskForm = ({ onChange }) => {
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {},
   });
   const submit = (formData) => {
     onChange(formData);
+    reset({
+      title: "",
+      body: "",
+    });
   };
   return (
     <div className="tasks-form__container">
